@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Eats — Order Fresh</title>
+<!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"> -->
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Healthy<span>Eats</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Track Order</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <div class="hamburger" onclick="alert('Menu open!')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background: radial-gradient(ellipse at 70% 50%, rgba(240,165,0,.06) 0%, transparent 65%);">
+  <div class="hero">
+    <div class="hero-bg-ring"></div>
+    <div>
+      <p class="hero-eyebrow">🔥 Fresh & Fast Delivery</p>
+      <h1>Food That Feels Like <em>Home</em></h1>
+      <p>Handcrafted meals from local kitchens, delivered to your door in 30 minutes. No compromise on quality, ever.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="#" class="btn-outline">How it Works</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-plate">🍜</div>
+      <div class="hero-badge">⚡ 30 min delivery</div>
+      <div class="hero-badge2">⭐ 4.9 Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">50K+</div><div class="stat-lbl">Happy Customers</div></div>
+  <div class="stat"><div class="stat-num">120+</div><div class="stat-lbl">Menu Items</div></div>
+  <div class="stat"><div class="stat-num">30min</div><div class="stat-lbl">Avg Delivery</div></div>
+</div>
+
+<!-- FEATURED DEAL -->
+<div class="section" style="padding-bottom:0;">
+  <div class="featured-banner">
+    <div>
+      <p class="featured-tag">Today's Special Deal</p>
+      <h3>Butter Chicken Combo</h3>
+      <p>Rich creamy gravy, tandoori chicken, garlic naan & raita. A complete feast for one.</p>
+      <button class="btn-primary" onclick="addToCartDirect('Butter Chicken Combo', 299, '🍛')">Add to Cart — ₹299</button>
+    </div>
+    <div class="featured-emoji">🍛</div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <div class="section-header">
+    <h2 class="section-title">Our <em>Menu</em></h2>
+    <span style="font-size:.82rem;color:var(--muted);">22 items available</span>
+  </div>
+
+  <div class="categories">
+    <button class="cat-pill active" onclick="filterCat(this,'all')">All</button>
+    <button class="cat-pill" onclick="filterCat(this,'indian')">🇮🇳 Indian</button>
+    <button class="cat-pill" onclick="filterCat(this,'chinese')">🥢 Chinese</button>
+    <button class="cat-pill" onclick="filterCat(this,'italian')">🍕 Italian</button>
+    <button class="cat-pill" onclick="filterCat(this,'dessert')">🍮 Desserts</button>
+    <button class="cat-pill" onclick="filterCat(this,'drinks')">🥤 Drinks</button>
+  </div>
+
+  <div class="food-grid" id="foodGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Healthy<span>Eats</span></div>
+  <p style="margin-top:.3rem;">© 2026 HealthyEats. Crafted with ❤️ for food lovers.</p>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Your Cart 🛒</h2>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <span class="empty-icon">🍽️</span>
+      Your cart is empty.<br>Add some delicious items!
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span class="total-amt" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Place Order →</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-dot"></span>
+  <span id="toastMsg">Added to cart!</span>
+</div>
+</body>
+</html>
